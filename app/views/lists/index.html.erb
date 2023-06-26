@@ -1,0 +1,10 @@
+<h1>lists</h1>
+
+<%# show list of lists %>
+<% @lists.each do |list| %>
+  <div class="list">
+    <h3><%= link_to list.name, list_path(list) %></h3>
+    <p><%= list.description %></p>
+    <p><%= link_to 'Edit', edit_list_path(list) %></p>
+    <p><%= link_to 'Delete', list_path(list), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </div>
