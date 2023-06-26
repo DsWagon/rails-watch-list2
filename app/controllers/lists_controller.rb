@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :find_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   # GET /lists
   def index
@@ -8,6 +8,10 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
+  end
+
+  def show
+    @bookmark = Bookmark.new
   end
 
   def create
@@ -26,7 +30,7 @@ class ListsController < ApplicationController
 
   private
 
-  def find_list
+  def set_list
     @list = List.find(params[:id])
   end
 
